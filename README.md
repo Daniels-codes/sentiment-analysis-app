@@ -33,7 +33,7 @@ This app processes user-input text (e.g., reviews or tweets) to determine its se
 - View the last 5 analyses in the "Recent Analyses" section.
 
 ## Screenshot
-![App Screenshot](screenshot.png)
+![App Screenshot](screenshot.jpg)
 
 ## Future Improvements
 - Integrate advanced NLP models (e.g., Hugging Face Transformers).
