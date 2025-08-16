@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sentiment Analysis App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #6a0dad;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: white;
+            color: #333;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            width: 600px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .form-section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .history-section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        h1 {
+            color: #6a0dad;
+            font-size: 1.5rem;
+            margin: 0 0 1rem 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        textarea {
+            width: 100%;
+            height: 80px;
+            padding: 8px;
+            border: 2px solid #6a0dad;
+            border-radius: 8px;
+            resize: none;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        button {
+            margin-top: 2px;
+            padding: 10px;
+            margin-left: 9px;
+            background-color: #6a0dad;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #4b0082;
+        }
+
+        .result {
+            font-size: 14px;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .history-section h3 {
+            font-size: 1rem;
+            margin: 0 0 10px 0;
+            color: #6a0dad;
+        }
+
+        .history-item {
+            font-size: 12px;
+            padding: 5px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        footer {
+            background-color: #4b0082;
+            color: white;
+            text-align: center;
+            padding: 1.2rem;
+            font-size: 12px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sentiment Analysis</h1>
+        <div class="form-section">
+            <form method="POST">
+                <textarea name="text" placeholder="Enter text to analyze">{{ text }}</textarea>
+                <button type="submit">Analyze Sentiment</button>
+            </form>
+            {% if error %}
+                <div class="error">{{ error }}</div>
+            {% endif %}
+            {% if sentiment %}
+                <div class="result">Sentiment: {{ sentiment }}</div>
+            {% endif %}
+        </div>
+        <div class="history-section">
+            <h3>Recent Analyses</h3>
+            {% if history %}
+                {% for item in history %}
+                    <div class="history-item">
+                        <strong>Text:</strong> {{ item.text }} <br>
+                        <strong>Sentiment:</strong> {{ item.sentiment }}
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No analyses yet.</p>
+            {% endif %}
+        </div>
+    </div>
+    <footer>
+        Flask App © DanCodes — Made with ❤️
+    </footer>
+</body>
+</html>
