@@ -3,7 +3,7 @@
 A Flask web app that analyzes text sentiment (positive 😊, negative 😔, or neutral 😐) using TextBlob. Built as a project to practice Python, NLP, and web development.
 
 ## Overview
-This app processes user-input text (e.g., reviews or tweets) to determine its sentiment in real-time. It features a side-by-side layout for the input form and history, an auto-clearing textarea after submission, and error handling for empty inputs. The history tracks the last 5 analyses, displayed in a compact, no-scroll UI. Developed to build skills in NLP and web development.
+This app processes user-input text (e.g., reviews or tweets) to determine its sentiment in real-time. It features a side-by-side layout for the input form and history, an auto-clearing textarea after submission, and error handling for empty inputs. The history tracks the last 5 analyses, displayed in a compact, box container scroll UI. Developed to build skills in NLP and web development.
 
 ## Tech Stack
 - Python
